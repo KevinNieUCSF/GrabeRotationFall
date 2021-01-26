@@ -23,8 +23,8 @@ collections
 1. Use the latest APBSmem version; APBS 1.5 or 3.0 should both work. MS is not required for gating charge calculation
 2. To reproduce the results on slide :
 3. In the APBSmem GUI change the "Calculation Type" field to "Gating charge"
-3. In the field "PQR File 1": Select vSGLT_inward-facing.pqr
-4. In the field "PQR File 2": Select vSGLT_outward-facing.pqr
+3. In the field "PQR File 1": Select vSGLT_inward-facing3.pqr
+4. In the field "PQR File 2": Select vSGLT_outward-facing3.pqr
 5. With every other field remaining untouched; adjust these parameters accordingly:
 5a. Grid Dimension: 97 for each field
 5b. Two focus levels (Under the dropdown "Focus" in the top left of the GUI)

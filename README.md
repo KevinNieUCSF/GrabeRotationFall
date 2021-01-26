@@ -10,4 +10,9 @@ Index:
 
 I did not do the APBSmem calculations in headless mode.
 Python modules needed:
-
+sys
+os
+numpy
+matplotlib
+scipy
+collections

@@ -1,13 +1,6 @@
 # GrabeRotationFall
 Repo of Scripts and structures for Kevin Fall rotation.
 
-Index:
-1. Reproduce Paola's and Kevin's Data
-2. Using PerRes.py
-3. Zero Charge Mutants
-4. Alanine Mutants
-5. Reproducing 
-
 
 
 **I did not do the APBSmem calculations in headless mode.**

@@ -3,10 +3,10 @@ Repo of Scripts and structures for Kevin Fall rotation.
 
 Index:
 1. Reproduce Paola's and Kevin's Data
-2. Reproduce Gltph
-3. Reproduce Kv1.2
-4. Reproduce VSP
-5. Using PerRes.py and PQRdiff.py
+2. Using PerRes.py
+3. Zero Charge Mutants
+4. Alanine Mutants
+5. Reproducing 
 
 
 
@@ -49,5 +49,31 @@ collections
 7. The script will generate a plot of charge-contribution per residue of one monomer (this function gets messed up when there are multiple chains in a pqr/pdb file)
 8. Exit the plot to query for specific residues. To find the charge contribution of the aspartate at position 189, use the three letter amino acid code plus the position number (ASP189), spaces need to be added if the residue number is below 100. For example: "ASP 90" or "ASP  9" for the 90th or 9th aspartate.
 
-**3. Zero Charge Mutants
+**3. Zero Charge Mutants**
+1. To reproduce the Zero charge mutations on slide 5, simply directly edit the PQR filees and change the residue you want to have zero charge (second to last column is the charge). make sure the number of digits do not change.
+2. Run the calculation and reuse vSGLT_gc_04a.
 
+**4. Alanine Mutants**
+1. To reproduce alanine mutants on slide 5, use MODELLER python module with select.mutation function, I added the alanine pqr files I used in AlanineMut.
+2. Run the calculation and reuse vSGLT_gc_04a.
+
+**5. Reproducing Machtens Et al. Data- Kv and VSP**
+1. To reproduce the data on slide 6:
+2. Grab the Kv1.2 PQR structures and load them in along with the parameters KV1.2_gc_02.solv.in
+3. Run the calculation.
+4. Use PerRes.py to generate the per-residue gating charge graph, comparison graph taken from Macthens et al.
+5. Grab the VSP pqr files and load them in along with the parameters VSP_gc_01.solv.in
+6. Run the calculation.
+7. Use PerRes.py to generate the per-residue gating charge graph, comparison graph was taken from Machtens et al.
+
+**6. Reproducing Machtens et al. Data- Gltp**
+1. To reproduce  data on slide 7:
+2. I went into the PQRs and manually deleted chains to single out different monomers out of the trimers and run the calculation.
+3. The parameters used was Gltp_gc_08.solv.in for each monomer.
+
+**7. Using PQRDiff.py**
+1. I found this script to be rather useful for sanity checking and making sure PQR files don't have different charges.
+2. Run the script with "python PQRDiff.py" making sure both PQR files you are trying to compare are in the same directory where you are.
+3. Input the exact names of the pqr files when prompted.
+4. It will first generate a graph showing any peaking which shows differences. A flat line indicates no differences.
+5. Exiting out of the graph lets you see specifically which residues have a charge difference.

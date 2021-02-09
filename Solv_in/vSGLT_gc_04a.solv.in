@@ -1,0 +1,199 @@
+#APBSmem parameters and geometric factors
+#zmem -23.0
+#lmem 46.0
+#mdie 2.0
+#idie 80.0
+#geo1 0.0
+#geo2 0.0
+#geo3 8.0
+#flood 
+
+# Read molecules
+read
+mol pqr "C:\Users\mailk\APBSmem\stg\121420\vSGLT_inward-facing3.pqr"
+mol pqr "C:\Users\mailk\APBSmem\stg\121420\vSGLT_outward-facing3.pqr"
+
+# Read maps
+diel dx dielx_1m.dx diely_1m.dx dielz_1m.dx
+diel dx dielx_2m.dx diely_2m.dx dielz_2m.dx
+diel dx dielx_3m.dx diely_3m.dx dielz_3m.dx
+diel dx dielx_4m.dx diely_4m.dx dielz_4m.dx
+diel dx dielx_5m.dx diely_5m.dx dielz_5m.dx
+diel dx dielx_6m.dx diely_6m.dx dielz_6m.dx
+
+kappa dx kappa_1m.dx
+kappa dx kappa_2m.dx
+kappa dx kappa_3m.dx
+kappa dx kappa_4m.dx
+kappa dx kappa_5m.dx
+kappa dx kappa_6m.dx
+
+charge dx charge_1m.dx
+charge dx charge_2m.dx
+charge dx charge_3m.dx
+charge dx charge_4m.dx
+charge dx charge_5m.dx
+charge dx charge_6m.dx
+end
+
+elec name ref_charged0
+mg-manual
+dime 97 97 97
+glen 300.0 300.0 300.0
+lpbe
+pdie 2.1
+sdie 80.0
+bcfl mem
+ion 1.0 0.1 2.0
+ion -1.0 0.1 2.0
+gcent 0 0 0
+mol 1
+chgm spl2
+srfm mol
+srad 1.4
+swin 0.3
+sdens 10.0
+temp 298.15
+calcenergy comps
+calcforce no
+zmem -23.0
+lmem 46.0
+mdie 2.0
+memv 2.0
+usemap diel 1
+usemap kappa 1
+usemap charge 1
+end
+
+elec name ref_charged1
+mg-manual
+dime 97 97 97
+glen 200.0 200.0 200.0
+lpbe
+pdie 2.1
+sdie 80.0
+bcfl focus
+ion 1.0 0.1 2.0
+ion -1.0 0.1 2.0
+gcent 0 0 0
+mol 1
+chgm spl2
+srfm mol
+srad 1.4
+swin 0.3
+sdens 10.0
+temp 298.15
+calcenergy comps
+calcforce no
+usemap diel 2
+usemap kappa 2
+usemap charge 2
+end
+
+elec name ref_charged2
+mg-manual
+dime 97 97 97
+glen 100.0 100.0 100.0
+lpbe
+pdie 2.1
+sdie 80.0
+bcfl focus
+ion 1.0 0.1 2.0
+ion -1.0 0.1 2.0
+gcent 0 0 0
+mol 1
+chgm spl2
+srfm mol
+srad 1.4
+swin 0.3
+sdens 10.0
+temp 298.15
+calcenergy comps
+calcforce no
+usemap diel 3
+usemap kappa 3
+usemap charge 3
+end
+
+elec name motion_charged0
+mg-manual
+dime 97 97 97
+glen 300.0 300.0 300.0
+lpbe
+pdie 2.1
+sdie 80.0
+bcfl mem
+ion 1.0 0.1 2.0
+ion -1.0 0.1 2.0
+gcent 0 0 0
+mol 2
+chgm spl2
+srfm mol
+srad 1.4
+swin 0.3
+sdens 10.0
+temp 298.15
+calcenergy comps
+calcforce no
+zmem -23.0
+lmem 46.0
+mdie 2.0
+memv 2.0
+usemap diel 4
+usemap kappa 4
+usemap charge 4
+end
+
+elec name motion_charged1
+mg-manual
+dime 97 97 97
+glen 200.0 200.0 200.0
+lpbe
+pdie 2.1
+sdie 80.0
+bcfl focus
+ion 1.0 0.1 2.0
+ion -1.0 0.1 2.0
+gcent 0 0 0
+mol 2
+chgm spl2
+srfm mol
+srad 1.4
+swin 0.3
+sdens 10.0
+temp 298.15
+calcenergy comps
+calcforce no
+usemap diel 5
+usemap kappa 5
+usemap charge 5
+end
+
+elec name motion_charged2
+mg-manual
+dime 97 97 97
+glen 100.0 100.0 100.0
+lpbe
+pdie 2.1
+sdie 80.0
+bcfl focus
+ion 1.0 0.1 2.0
+ion -1.0 0.1 2.0
+gcent 0 0 0
+mol 2
+chgm spl2
+srfm mol
+srad 1.4
+swin 0.3
+sdens 10.0
+temp 298.15
+calcenergy comps
+calcforce no
+usemap diel 6
+usemap kappa 6
+usemap charge 6
+end
+
+print elecEnergy ref_charged2 - motion_charged2 end
+
+quit
